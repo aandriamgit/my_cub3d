@@ -6,7 +6,7 @@
 /*   By: aandriam <aandriam@student.42antananarivo  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 15:03:12 by aandriam          #+#    #+#             */
-/*   Updated: 2025/01/21 16:36:32 by aandriam         ###   ########.fr       */
+/*   Updated: 2025/01/21 17:19:56 by aandriam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	get_random_int(int argc)
 	return (res);
 }
 
-static void	map_reading_stderr(int random_int)
+static void	not_two_args(int random_int)
 {
 	if (random_int >= 0 && random_int <= 29)
 		ft_putstr_fd("The program needs two arguments, try again\n", 2);
@@ -46,10 +46,30 @@ static void	map_reading_stderr(int random_int)
 		ft_putstr_fd("Try with two arguments :)\n", 2);
 }
 
+static void	not_correct_extension(int random_int)
+{
+	if (random_int >= 0 && random_int <= 29)
+		ft_putstr_fd("extension incorrect 1\n", 2);
+	else if (random_int >= 30 && random_int <= 39)
+		ft_putstr_fd("extension incorrect 2\n", 2);
+	else if (random_int >= 40 && random_int <= 49)
+		ft_putstr_fd("extension incorrect 3\n", 2);
+	else if (random_int >= 50 && random_int <= 59)
+		ft_putstr_fd("extension incorrect 4\n", 2);
+	else if (random_int >= 60 && random_int <= 69)
+		ft_putstr_fd("extension incorrect 5\n", 2);
+	else if (random_int >= 70 && random_int <= 80)
+		ft_putstr_fd("extension incorrect 6\n", 2);
+	else
+		ft_putstr_fd("extension incorrect 7\n", 2);
+}
+
 static void	print_random_message(int id, int random_int)
 {
 	if (id == 1)
-		map_reading_stderr(random_int);
+		not_two_args(random_int);
+	else if (id == 2)
+		not_correct_extension(random_int);
 }
 
 void	ft_perror(char *str, char *tmp, int exit_code, t_vars *vars)
@@ -57,6 +77,8 @@ void	ft_perror(char *str, char *tmp, int exit_code, t_vars *vars)
 	ft_putstr_fd(str, 2);
 	if (ft_strncmp(tmp, "map_reading_one", ft_strlen(tmp)) == 0)
 		print_random_message(1, get_random_int(vars->argc));
+	else if (ft_strncmp(tmp, "extension_incorrect", ft_strlen(tmp)) == 0)
+		print_random_message(2, get_random_int(vars->argc));
 	else
 		ft_putstr_fd(tmp, 2);
 	exit(exit_code);
