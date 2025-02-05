@@ -6,7 +6,7 @@
 /*   By: aandriam <aandriam@student.42antananarivo  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 14:34:59 by aandriam          #+#    #+#             */
-/*   Updated: 2025/01/27 15:33:47 by aandriam         ###   ########.fr       */
+/*   Updated: 2025/02/04 13:12:17 by aandriam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ static void	general_init(t_vars *vars, int argc, char **argv)
 	vars->argv = argv;
 	vars->argc = argc;
 	map_reading(vars);
+	data_saving(vars);
 }
 
 int	main(int argc, char **argv)

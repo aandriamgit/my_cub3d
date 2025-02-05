@@ -13,6 +13,7 @@ SRC = ./cub.c \
 	  ./get_next_line/get_next_line_utils.c \
 	  ./modules/ft_perror.c \
 	  ./general_init/map_reading.c \
+	  ./general_init/map_saving.c \
 
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 

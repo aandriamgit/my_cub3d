@@ -6,7 +6,7 @@
 /*   By: aandriam <aandriam@student.42antananarivo  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 15:04:32 by aandriam          #+#    #+#             */
-/*   Updated: 2025/01/21 15:41:47 by aandriam         ###   ########.fr       */
+/*   Updated: 2025/02/05 10:36:44 by aandriam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,15 @@
 
 # include "../libft/libft.h"
 
+typedef struct s_data
+{
+}			t_data;
+
 typedef struct s_vars
 {
 	int		argc;
 	char	**argv;
+	t_data	*data;
 }			t_vars;
 
 void		ft_perror(char *str, char *tmp, int exit_code, t_vars *vars);
