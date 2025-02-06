@@ -9,11 +9,16 @@ SRC = ./cub.c \
 	  ./libft/ft_strncmp.c \
 	  ./libft/ft_putchar_fd.c \
 	  ./libft/ft_putnbr_fd.c \
+	  ./libft/ft_strchr.c \
+	  ./libft/ft_strrchr.c \
+	  ./libft/ft_strtrim.c \
+	  ./libft/ft_split.c \
 	  ./get_next_line/get_next_line.c \
 	  ./get_next_line/get_next_line_utils.c \
 	  ./modules/ft_perror.c \
 	  ./general_init/map_reading.c \
-	  ./general_init/map_saving.c \
+	  ./general_init/data_saving.c \
+	  ./general_init/data_classification.c \
 
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 
