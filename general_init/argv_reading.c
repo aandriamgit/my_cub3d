@@ -6,7 +6,7 @@
 /*   By: aandriam <aandriam@student.42antananarivo  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 15:01:00 by aandriam          #+#    #+#             */
-/*   Updated: 2025/02/06 14:21:12 by aandriam         ###   ########.fr       */
+/*   Updated: 2025/02/06 17:23:26 by aandriam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static int	read_file(t_vars *vars)
 	fd = open(vars->argv[1], O_RDONLY);
 	if (fd == -1)
 	{
-		write(2, "Error\n", 6);
+		write(2, "Error\n", 7);
 		perror(vars->argv[1]);
 		exit(1);
 	}

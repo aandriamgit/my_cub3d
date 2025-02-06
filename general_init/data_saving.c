@@ -6,7 +6,7 @@
 /*   By: aandriam <aandriam@student.42antananarivo  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 13:02:10 by aandriam          #+#    #+#             */
-/*   Updated: 2025/02/06 16:47:27 by aandriam         ###   ########.fr       */
+/*   Updated: 2025/02/06 17:13:44 by aandriam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void	data_init(t_vars *vars)
 	}
 }
 
-static void	map_init(t_vars *vars)
+static void	raw_map_init(t_vars *vars)
 {
 	(void)vars;
 }
@@ -61,6 +61,6 @@ static void	map_init(t_vars *vars)
 void	data_saving(t_vars *vars)
 {
 	data_init(vars);
-	map_init(vars);
+	raw_map_init(vars);
 	ft_perror(NULL, NULL, 0, vars);
 }
