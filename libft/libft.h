@@ -6,7 +6,7 @@
 /*   By: aandriam <aandriam@student.42antananarivo  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 14:28:55 by aandriam          #+#    #+#             */
-/*   Updated: 2025/02/05 14:04:36 by aandriam         ###   ########.fr       */
+/*   Updated: 2025/02/06 16:39:09 by aandriam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,8 @@ char	*ft_strrchr(const char *s, int c);
 char	*ft_strchr(const char *s, int c);
 void	my_strtrim(char **s1, char const *set);
 char	**ft_split(char const *s, char c);
+char	*ft_strdup(const char *s);
+void	ft_putstr_fd(char *s, int fd);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 #endif

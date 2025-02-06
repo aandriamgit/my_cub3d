@@ -6,7 +6,7 @@
 /*   By: aandriam <aandriam@student.42antananarivo  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 15:03:12 by aandriam          #+#    #+#             */
-/*   Updated: 2025/01/27 11:08:18 by aandriam         ###   ########.fr       */
+/*   Updated: 2025/02/06 16:28:33 by aandriam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,12 +74,20 @@ static void	print_random_message(int id, int random_int)
 
 void	ft_perror(char *str, char *tmp, int exit_code, t_vars *vars)
 {
-	ft_putstr_fd(str, 2);
-	if (ft_strncmp(tmp, "map_reading_one", ft_strlen(tmp)) == 0)
-		print_random_message(1, get_random_int(vars->argc));
-	else if (ft_strncmp(tmp, "extension_incorrect", ft_strlen(tmp)) == 0)
-		print_random_message(2, get_random_int(vars->argc));
-	else
-		ft_putstr_fd(tmp, 2);
+	if (str || tmp)
+	{
+		if (str)
+		{
+			ft_putstr_fd(str, 2);
+			if (ft_strncmp(tmp, "map_reading_one", ft_strlen(tmp)) == 0)
+				print_random_message(1, get_random_int(vars->argc));
+			else if (ft_strncmp(tmp, "extension_incorrect",
+					ft_strlen(tmp)) == 0)
+				print_random_message(2, get_random_int(vars->argc));
+		}
+		else if (tmp)
+			ft_putstr_fd(tmp, 2);
+	}
+	clean_vars(vars);
 	exit(exit_code);
 }

@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aandriam <aandriam@student.42antananarivo  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/23 16:02:25 by aandriam          #+#    #+#             */
-/*   Updated: 2025/02/06 16:46:25 by aandriam         ###   ########.fr       */
+/*   Created: 2024/03/05 14:11:54 by aandriam          #+#    #+#             */
+/*   Updated: 2025/02/06 16:46:51 by aandriam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strdup(const char *s)
 {
-	char	*point;
-	size_t	i;
+	int		i;
+	int		len_s;
+	char	*strcopy;
 
 	i = 0;
-	point = NULL;
-	while (s[i] != '\0')
+	len_s = ft_strlen(s);
+	strcopy = malloc(sizeof(char) * (len_s + 1));
+	if (strcopy == 0)
+		return (NULL);
+	while (s[i] != 0)
 	{
-		if (s[i] == (char)c)
-		{
-			point = (char *)&s[i];
-		}
+		strcopy[i] = s[i];
 		i++;
 	}
-	if ((char)c == '\0')
-	{
-		point = (char *)&s[i];
-	}
-	return (point);
+	strcopy[i] = '\0';
+	return (strcopy);
 }

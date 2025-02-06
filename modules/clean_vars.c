@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub.c                                              :+:      :+:    :+:   */
+/*   clean_vars.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aandriam <aandriam@student.42antananarivo  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/21 14:34:59 by aandriam          #+#    #+#             */
-/*   Updated: 2025/02/06 16:26:40 by aandriam         ###   ########.fr       */
+/*   Created: 2025/02/06 14:13:35 by aandriam          #+#    #+#             */
+/*   Updated: 2025/02/06 16:13:42 by aandriam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub.h"
-#include "modules/modules.h"
+#include "modules.h"
 
-static void	general_init(t_vars *vars, int argc, char **argv)
+static void	clean_data(t_vars *vars)
 {
-	vars->argv = argv;
-	vars->argc = argc;
-	struct_memset(vars);
-	argv_reading(vars);
-	data_saving(vars);
+	if (vars->data.c != NULL)
+		free(vars->data.c);
+	if (vars->data.f != NULL)
+		free(vars->data.f);
+	if (vars->data.ea != NULL)
+		free(vars->data.ea);
+	if (vars->data.we != NULL)
+		free(vars->data.we);
+	if (vars->data.so != NULL)
+		free(vars->data.so);
+	if (vars->data.no != NULL)
+		free(vars->data.no);
 }
 
-int	main(int argc, char **argv)
+void	clean_vars(t_vars *vars)
 {
-	t_vars	vars;
-
-	general_init(&vars, argc, argv);
+	clean_data(vars);
 }

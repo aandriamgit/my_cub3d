@@ -6,20 +6,35 @@
 /*   By: aandriam <aandriam@student.42antananarivo  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 13:02:10 by aandriam          #+#    #+#             */
-/*   Updated: 2025/02/05 14:41:54 by aandriam         ###   ########.fr       */
+/*   Updated: 2025/02/06 16:47:27 by aandriam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "general_init.h"
 
-static void	emergency_protocol(int fd, t_vars *vars)
-{
-}
-
-static void	data_init(int fd, t_vars *vars)
+static void	emergency_protocol(char *lol, int fd, t_vars *vars)
 {
 	char	*tmp;
 
+	tmp = get_next_line(fd);
+	while (tmp)
+	{
+		free(tmp);
+		tmp = get_next_line(fd);
+	}
+	close(fd);
+	free(lol);
+	ft_perror("Error\n", "data_init failed\n", 1, vars);
+}
+
+static void	data_init(t_vars *vars)
+{
+	char	*tmp;
+	int		fd;
+	int		i;
+
+	i = 1;
+	fd = open(vars->argv[1], O_RDONLY);
 	tmp = get_next_line(fd);
 	if (!tmp)
 	{
@@ -30,22 +45,22 @@ static void	data_init(int fd, t_vars *vars)
 	while (tmp)
 	{
 		my_strtrim(&tmp, " ");
-		if (data_classification(tmp, vars) != 0)
-			emergency_protocol(fd, vars);
+		if (data_classification(i, tmp, vars) != 0)
+			emergency_protocol(tmp, fd, vars);
+		free(tmp);
 		tmp = get_next_line(fd);
+		i++;
 	}
+}
+
+static void	map_init(t_vars *vars)
+{
+	(void)vars;
 }
 
 void	data_saving(t_vars *vars)
 {
-	int	fd;
-
-	fd = open(vars->argv[1], O_RDONLY);
-	vars->data.we = NULL;
-	vars->data.so = NULL;
-	vars->data.no = NULL;
-	vars->data.c = NULL;
-	vars->data.f = NULL;
-	vars->data.ea = NULL;
-	data_init(fd, vars);
+	data_init(vars);
+	map_init(vars);
+	ft_perror(NULL, NULL, 0, vars);
 }
